@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Entendendo a Mente | Neurociência e Produtividade</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Tailwind Config for Custom Colors -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        darkBg: '#0f0f13',
+                        darkCard: '#16161c',
+                        cyanAccent: '#00E5FF',
+                        cyanHover: '#33ebff',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #0f0f13;
+            color: #e2e8f0;
+        }
+        /* Custom Neon Glow Effects */
+        .neon-glow {
+            box-shadow: 0 0 15px rgba(0, 229, 255, 0.4);
+        }
+        .neon-glow:hover {
+            box-shadow: 0 0 25px rgba(0, 229, 255, 0.7);
+        }
+        .neon-text {
+            text-shadow: 0 0 10px rgba(0, 229, 255, 0.5);
+        }
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-5px);
+            border-color: #00E5FF;
+            box-shadow: 0 10px 30px -10px rgba(0, 229, 255, 0.2);
+        }
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0f0f13;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #334155;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #00E5FF;
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-cyanAccent selection:text-darkBg">
+
+    <!-- Navbar -->
+    <nav class="fixed w-full z-50 bg-darkBg/90 backdrop-blur-md border-b border-white/10 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center gap-3">
+                    <div class="w-12 h-12 rounded-full border-2 border-cyanAccent flex items-center justify-center neon-glow">
+                        <span class="text-cyanAccent font-bold text-xl tracking-tighter">EM</span>
+                    </div>
+                    <span class="font-bold text-xl hidden sm:block tracking-tight text-white">Entendendo a <span class="text-cyanAccent">Mente</span></span>
+                </div>
+                <!-- Links (Desktop) -->
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="#videos" class="text-gray-300 hover:text-cyanAccent transition-colors text-sm uppercase tracking-wider font-semibold">Vídeos</a>
+                    <a href="#ferramentas" class="text-gray-300 hover:text-cyanAccent transition-colors text-sm uppercase tracking-wider font-semibold">Ferramentas</a>
+                    <a href="#biblioteca" class="text-gray-300 hover:text-cyanAccent transition-colors text-sm uppercase tracking-wider font-semibold">Biblioteca</a>
+                    <a href="https://youtube.com" target="_blank" class="bg-cyanAccent text-darkBg px-6 py-2 rounded-full font-bold hover:bg-cyanHover transition-all neon-glow">
+                        Inscrever-se
+                    </a>
+                </div>
+                <!-- Mobile menu button -->
+                <div class="md:hidden flex items-center">
+                    <button class="text-gray-300 hover:text-cyanAccent focus:outline-none" id="mobile-menu-btn">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div class="md:hidden hidden bg-darkCard border-b border-white/10" id="mobile-menu">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#videos" class="block px-3 py-2 text-base font-medium text-gray-300 hover:text-cyanAccent">Vídeos</a>
+                <a href="#ferramentas" class="block px-3 py-2 text-base font-medium text-gray-300 hover:text-cyanAccent">Ferramentas</a>
+                <a href="#biblioteca" class="block px-3 py-2 text-base font-medium text-gray-300 hover:text-cyanAccent">Biblioteca</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden flex items-center justify-center min-h-screen">
+        <!-- Background decorative elements -->
+        <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-cyanAccent/10 rounded-full blur-[120px] pointer-events-none"></div>
+        <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-900/20 rounded-full blur-[120px] pointer-events-none"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+            <div class="inline-block mb-4 px-4 py-1 rounded-full border border-cyanAccent/30 bg-cyanAccent/5 text-cyanAccent text-sm font-semibold tracking-widest uppercase">
+                <i class="fas fa-brain mr-2"></i> Psicologia & Produtividade
+            </div>
+            <h1 class="text-5xl md:text-7xl font-extrabold text-white tracking-tight mb-6 leading-tight">
+                Descodifique o seu cérebro.<br>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyanAccent to-blue-500 neon-text">Domine a sua rotina.</span>
+            </h1>
+            <p class="mt-4 max-w-2xl mx-auto text-xl text-gray-400 mb-10">
+                Aprenda a blindar a sua mente contra distrações e instale micro-hábitos à prova de falhas para 2027 com base em neurociência comportamental.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="#videos" class="px-8 py-4 bg-cyanAccent text-darkBg rounded-full font-bold text-lg hover:bg-cyanHover transition-all neon-glow flex items-center justify-center">
+                    <i class="fab fa-youtube mr-2 text-xl"></i> Acessar Canal
+                </a>
+                <a href="#ferramentas" class="px-8 py-4 bg-transparent border border-gray-600 text-white rounded-full font-bold text-lg hover:border-cyanAccent hover:text-cyanAccent transition-colors flex items-center justify-center">
+                    Hackear Hábitos <i class="fas fa-arrow-down ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Vídeos Recentes Section -->
+    <section id="videos" class="py-20 bg-darkBg border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-end mb-12">
+                <div>
+                    <h2 class="text-3xl font-bold text-white mb-2">Vídeos <span class="text-cyanAccent">Recentes</span></h2>
+                    <p class="text-gray-400">Análises profundas sobre comportamento e mente humana.</p>
+                </div>
+                <a href="#" class="hidden md:block text-cyanAccent hover:text-cyanHover font-semibold transition-colors">Ver todos <i class="fas fa-arrow-right ml-1"></i></a>
+            </div>
+
+            <!-- Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Card 1 -->
+                <div class="bg-darkCard rounded-2xl overflow-hidden border border-gray-800 card-hover group cursor-pointer">
+                    <div class="w-full h-48 bg-gray-900 relative flex items-center justify-center overflow-hidden">
+                        <i class="fas fa-robot text-4xl text-gray-700 group-hover:text-cyanAccent/50 transition-colors"></i>
+                        <div class="absolute inset-0 bg-gradient-to-t from-darkCard to-transparent opacity-80"></div>
+                        <span class="absolute bottom-2 right-2 bg-black/80 text-white text-xs px-2 py-1 rounded font-mono">10:45</span>
+                    </div>
+                    <div class="p-6">
+                        <div class="text-cyanAccent text-xs font-bold uppercase tracking-wider mb-2">Neurociência</div>
+                        <h3 class="text-xl font-bold text-white mb-2 group-hover:text-cyanAccent transition-colors">O Algoritmo da Ansiedade</h3>
+                        <p class="text-gray-400 text-sm line-clamp-2">Descubra como você pode estar treinando a sua própria mente para gerar medo e preocupação constantes.</p>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="bg-darkCard rounded-2xl overflow-hidden border border-gray-800 card-hover group cursor-pointer">
+                    <div class="w-full h-48 bg-gray-900 relative flex items-center justify-center overflow-hidden">
+                        <i class="fas fa-shield-halved text-4xl text-gray-700 group-hover:text-cyanAccent/50 transition-colors"></i>
+                        <div class="absolute inset-0 bg-gradient-to-t from-darkCard to-transparent opacity-80"></div>
+                        <span class="absolute bottom-2 right-2 bg-black/80 text-white text-xs px-2 py-1 rounded font-mono">08:30</span>
+                    </div>
+                    <div class="p-6">
+                        <div class="text-cyanAccent text-xs font-bold uppercase tracking-wider mb-2">Psicologia Social</div>
+                        <h3 class="text-xl font-bold text-white mb-2 group-hover:text-cyanAccent transition-colors">O Escudo Mental</h3>
+                        <p class="text-gray-400 text-sm line-clamp-2">Como identificar táticas invisíveis de controle mental e blindar o seu pensamento crítico contra manipulações.</p>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="bg-darkCard rounded-2xl overflow-hidden border border-gray-800 card-hover group cursor-pointer">
+                    <div class="w-full h-48 bg-gray-900 relative flex items-center justify-center overflow-hidden">
+                        <i class="fas fa-battery-quarter text-4xl text-gray-700 group-hover:text-cyanAccent/50 transition-colors"></i>
+                        <div class="absolute inset-0 bg-gradient-to-t from-darkCard to-transparent opacity-80"></div>
+                        <span class="absolute bottom-2 right-2 bg-black/80 text-white text-xs px-2 py-1 rounded font-mono">07:07</span>
+                    </div>
+                    <div class="p-6">
+                        <div class="text-cyanAccent text-xs font-bold uppercase tracking-wider mb-2">Saúde Mental</div>
+                        <h3 class="text-xl font-bold text-white mb-2 group-hover:text-cyanAccent transition-colors">O que é Burnout?</h3>
+                        <p class="text-gray-400 text-sm line-clamp-2">Os sinais silenciosos de esgotamento profissional e as estratégias baseadas em evidências para recuperação.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-8 text-center md:hidden">
+                <a href="#" class="text-cyanAccent hover:text-cyanHover font-semibold transition-colors">Ver todos os vídeos no YouTube</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ferramentas Section (Interactive) -->
+    <section id="ferramentas" class="py-20 relative bg-darkCard border-y border-white/5">
+        <div class="absolute inset-0 opacity-[0.03]" style="background-image: radial-gradient(#00E5FF 1px, transparent 1px); background-size: 30px 30px;"></div>
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-12">
+                <i class="fas fa-cogs text-3xl text-cyanAccent mb-4"></i>
+                <h2 class="text-3xl font-bold text-white mb-4">Calculadora de <span class="text-cyanAccent">Micro-Hábitos</span></h2>
+                <p class="text-gray-400">Descubra o poder do longo prazo. O cérebro automatiza o que é repetido. Veja o impacto de pequenas ações diárias no espaço de um ano.</p>
+            </div>
+
+            <div class="bg-darkBg p-8 rounded-2xl border border-gray-800 shadow-2xl relative overflow-hidden">
+                <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-cyanAccent to-transparent opacity-50"></div>
+                
+                <form id="habitForm" class="space-y-6">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-400 mb-2">Qual hábito quer criar?</label>
+                            <input type="text" id="habitName" required placeholder="Ex: Ler, Meditar, Programar..." 
+                                class="w-full bg-darkCard border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-cyanAccent focus:ring-1 focus:ring-cyanAccent transition-colors">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-400 mb-2">Minutos diários dedicados:</label>
+                            <input type="number" id="habitMins" required min="1" max="1440" placeholder="Ex: 15" 
+                                class="w-full bg-darkCard border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-cyanAccent focus:ring-1 focus:ring-cyanAccent transition-colors">
+                        </div>
+                    </div>
+                    <button type="submit" class="w-full bg-cyanAccent/10 text-cyanAccent border border-cyanAccent/50 rounded-lg py-3 font-bold hover:bg-cyanAccent hover:text-darkBg transition-all">
+                        Calcular Impacto Neural
+                    </button>
+                </form>
+
+                <!-- Result Area -->
+                <div id="calcResult" class="hidden mt-8 p-6 bg-darkCard border border-gray-700 rounded-lg text-center transform transition-all duration-500 scale-95 opacity-0">
+                    <p class="text-gray-300 text-lg leading-relaxed" id="resultText"></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Biblioteca Section (Affiliate placeholders) -->
+    <section id="biblioteca" class="py-20 bg-darkBg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-white mb-4">Biblioteca <span class="text-cyanAccent">Essencial</span></h2>
+                <p class="text-gray-400 max-w-2xl mx-auto">O input de dados da sua mente importa. Livros recomendados sobre psicologia, hábitos e comportamento para atualizar o seu sistema.</p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Book 1 -->
+                <a href="#" class="block bg-darkCard border border-gray-800 rounded-xl p-5 card-hover group text-center flex flex-col items-center">
+                    <div class="w-32 h-48 bg-gray-900 rounded mb-4 shadow-lg flex items-center justify-center border border-gray-800 group-hover:border-cyanAccent/50 transition-colors relative overflow-hidden">
+                        <i class="fas fa-book text-gray-700 text-4xl"></i>
+                    </div>
+                    <h3 class="font-bold text-white text-lg leading-tight mb-1">Hábitos Atómicos</h3>
+                    <p class="text-gray-500 text-sm mb-4">James Clear</p>
+                    <span class="mt-auto text-xs text-cyanAccent font-semibold border border-cyanAccent/30 rounded-full px-3 py-1 bg-cyanAccent/5 group-hover:bg-cyanAccent group-hover:text-darkBg transition-colors">
+                        Ver na Loja <i class="fas fa-external-link-alt ml-1"></i>
+                    </span>
+                </a>
+                
+                <!-- Book 2 -->
+                <a href="#" class="block bg-darkCard border border-gray-800 rounded-xl p-5 card-hover group text-center flex flex-col items-center">
+                    <div class="w-32 h-48 bg-gray-900 rounded mb-4 shadow-lg flex items-center justify-center border border-gray-800 group-hover:border-cyanAccent/50 transition-colors relative overflow-hidden">
+                        <i class="fas fa-book text-gray-700 text-4xl"></i>
+                    </div>
+                    <h3 class="font-bold text-white text-lg leading-tight mb-1">Rápido e Devagar</h3>
+                    <p class="text-gray-500 text-sm mb-4">Daniel Kahneman</p>
+                    <span class="mt-auto text-xs text-cyanAccent font-semibold border border-cyanAccent/30 rounded-full px-3 py-1 bg-cyanAccent/5 group-hover:bg-cyanAccent group-hover:text-darkBg transition-colors">
+                        Ver na Loja <i class="fas fa-external-link-alt ml-1"></i>
+                    </span>
+                </a>
+
+                <!-- Book 3 -->
+                <a href="#" class="block bg-darkCard border border-gray-800 rounded-xl p-5 card-hover group text-center flex flex-col items-center">
+                    <div class="w-32 h-48 bg-gray-900 rounded mb-4 shadow-lg flex items-center justify-center border border-gray-800 group-hover:border-cyanAccent/50 transition-colors relative overflow-hidden">
+                        <i class="fas fa-book text-gray-700 text-4xl"></i>
+                    </div>
+                    <h3 class="font-bold text-white text-lg leading-tight mb-1">Deep Work</h3>
+                    <p class="text-gray-500 text-sm mb-4">Cal Newport</p>
+                    <span class="mt-auto text-xs text-cyanAccent font-semibold border border-cyanAccent/30 rounded-full px-3 py-1 bg-cyanAccent/5 group-hover:bg-cyanAccent group-hover:text-darkBg transition-colors">
+                        Ver na Loja <i class="fas fa-external-link-alt ml-1"></i>
+                    </span>
+                </a>
+
+                <!-- Book 4 -->
+                <a href="#" class="block bg-darkCard border border-gray-800 rounded-xl p-5 card-hover group text-center flex flex-col items-center">
+                    <div class="w-32 h-48 bg-gray-900 rounded mb-4 shadow-lg flex items-center justify-center border border-gray-800 group-hover:border-cyanAccent/50 transition-colors relative overflow-hidden">
+                        <i class="fas fa-book text-gray-700 text-4xl"></i>
+                    </div>
+                    <h3 class="font-bold text-white text-lg leading-tight mb-1">Dopamine Nation</h3>
+                    <p class="text-gray-500 text-sm mb-4">Anna Lembke</p>
+                    <span class="mt-auto text-xs text-cyanAccent font-semibold border border-cyanAccent/30 rounded-full px-3 py-1 bg-cyanAccent/5 group-hover:bg-cyanAccent group-hover:text-darkBg transition-colors">
+                        Ver na Loja <i class="fas fa-external-link-alt ml-1"></i>
+                    </span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="py-20 bg-darkCard border-t border-white/5">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="w-16 h-16 bg-cyanAccent/10 rounded-full flex items-center justify-center mx-auto mb-6 text-cyanAccent text-2xl border border-cyanAccent/20">
+                <i class="far fa-envelope"></i>
+            </div>
+            <h2 class="text-3xl font-bold text-white mb-4">Protocolo de Evolução Mensal</h2>
+            <p class="text-gray-400 mb-8">Receba estratégias analíticas sobre produtividade e neurociência diretamente na sua caixa de entrada. Sem spam, apenas conhecimento aplicável.</p>
+            
+            <form id="newsletterForm" class="flex flex-col sm:flex-row gap-3 justify-center">
+                <input type="email" required placeholder="Seu melhor e-mail" 
+                    class="w-full sm:w-2/3 bg-darkBg border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-cyanAccent focus:ring-1 focus:ring-cyanAccent">
+                <button type="submit" class="bg-cyanAccent text-darkBg px-6 py-3 rounded-lg font-bold hover:bg-cyanHover transition-all whitespace-nowrap shadow-[0_0_10px_rgba(0,229,255,0.3)] hover:shadow-[0_0_20px_rgba(0,229,255,0.6)]">
+                    Blindar Mente
+                </button>
+            </form>
+            <div id="newsletterMsg" class="hidden mt-4 text-sm text-cyanAccent font-medium"></div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-[#0a0a0d] pt-16 pb-8 border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center mb-8 gap-6">
+                <!-- Logo Footer -->
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-full border-2 border-cyanAccent flex items-center justify-center opacity-80">
+                        <span class="text-cyanAccent font-bold tracking-tighter">EM</span>
+                    </div>
+                    <span class="font-bold text-lg text-white">Entendendo a <span class="text-cyanAccent">Mente</span></span>
+                </div>
+                
+                <!-- Social -->
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-500 hover:text-cyanAccent transition-colors text-xl"><i class="fab fa-youtube"></i></a>
+                    <a href="#" class="text-gray-500 hover:text-cyanAccent transition-colors text-xl"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="text-gray-500 hover:text-cyanAccent transition-colors text-xl"><i class="fab fa-tiktok"></i></a>
+                </div>
+            </div>
+
+            <!-- Aviso Ético (Disclaimer) -->
+            <div class="bg-darkCard p-6 rounded-lg border border-gray-800/50 mb-8">
+                <h4 class="text-gray-300 font-bold text-sm mb-2 uppercase tracking-wider flex items-center gap-2">
+                    <i class="fas fa-exclamation-triangle text-amber-500"></i> Aviso Ético e Legal
+                </h4>
+                <p class="text-gray-500 text-xs leading-relaxed">
+                    O conteúdo apresentado no canal "Entendendo a Mente" e neste site possui caráter estritamente educacional, informativo e de reflexão. Os vídeos, artigos e ferramentas não substituem o diagnóstico, a orientação, a prescrição ou o acompanhamento de um psicólogo, psiquiatra ou qualquer profissional de saúde qualificado. Se você estiver enfrentando crises emocionais crônicas ou transtornos mentais, busque ajuda profissional especializada imediatamente. 
+                </p>
+            </div>
+
+            <div class="border-t border-gray-800/50 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-gray-600 text-sm">
+                    &copy; 2026 Entendendo a Mente. Todos os direitos reservados.
+                </p>
+                <div class="flex space-x-4 text-sm text-gray-600">
+                    <a href="#" class="hover:text-gray-300 transition-colors">Termos</a>
+                    <a href="#" class="hover:text-gray-300 transition-colors">Privacidade</a>
+                    <a href="#" class="hover:text-gray-300 transition-colors">Contato</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Logic Script -->
+    <script>
+        // Mobile Menu Toggle
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Habit Calculator Logic
+        const habitForm = document.getElementById('habitForm');
+        const calcResult = document.getElementById('calcResult');
+        const resultText = document.getElementById('resultText');
+
+        habitForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            const habit = document.getElementById('habitName').value.trim();
+            const minutes = parseInt(document.getElementById('habitMins').value);
+            
+            if (!habit || isNaN(minutes) || minutes <= 0) return;
+
+            // Calculate total hours per year
+            const hoursPerYear = (minutes * 365) / 60;
+            const formattedHours = hoursPerYear.toLocaleString('pt-BR', { maximumFractionDigits: 1 });
+
+            // Construct message
+            resultText.innerHTML = `
+                Ao dedicar <span class="text-cyanAccent font-bold">${minutes} minutos</span> por dia, você acumulará 
+                <span class="text-cyanAccent font-bold text-2xl block my-2">${formattedHours} horas</span> 
+                de <strong>"${habit}"</strong> em um ano. <br><br>
+                <span class="text-sm text-gray-400">O seu cérebro automatiza o que é repetido. Pequenos inputs diários geram transformações massivas no longo prazo.</span>
+            `;
+
+            // Animate entrance
+            calcResult.classList.remove('hidden');
+            // Small delay for CSS transition to trigger after removing 'hidden'
+            setTimeout(() => {
+                calcResult.classList.remove('scale-95', 'opacity-0');
+                calcResult.classList.add('scale-100', 'opacity-100');
+            }, 10);
+        });
+
+        // Newsletter Form Mock
+        const newsletterForm = document.getElementById('newsletterForm');
+        const newsletterMsg = document.getElementById('newsletterMsg');
+
+        newsletterForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const input = newsletterForm.querySelector('input');
+            newsletterMsg.innerHTML = `<i class="fas fa-check-circle mr-1"></i> E-mail <strong>${input.value}</strong> adicionado ao protocolo com sucesso.`;
+            newsletterMsg.classList.remove('hidden');
+            input.value = '';
+        });
+    </script>
+</body>
+</html>
